@@ -1,8 +1,9 @@
 about:
-  summary: 'GRCh37 reference genome from 1000 genomes '
+  summary: GRCh37 reference genome from 1000 genomes
 build:
   binary_relocation: false
   detect_binary_files_with_prefix: false
+  noarch: generic
   number: 0
 extra:
   authors: jrb
