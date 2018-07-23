@@ -28,6 +28,10 @@ jobs:
     test-linux:
         <<: *linux
         steps:
+            - run:
+                command: pwd
+            - run: 
+                command: ls
             - *setup
             - *run
     
