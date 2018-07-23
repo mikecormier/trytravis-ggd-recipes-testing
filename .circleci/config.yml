@@ -28,6 +28,7 @@ jobs:
     test-linux:
         <<: *linux
         steps:
+            - checkout 
             - run:
                 command: pwd
             - run: 
