@@ -40,12 +40,19 @@ workflows:
     version: 2
     build-n-filter-ggd-recipes:
         jobs:
+            - test-linux
+            - test-macos
+    ggd-recipes-nightly-build:
+        triggers: 
+            - schedule:
+                cron: "0 0 * * *"
+                filters:
+                    branches:
+                        only:
+                            - master
+        jobs:
             - test-linux:
                 context: ggd-dev
             - test-macos:
                 context: ggd-dev
-            
-
-
-    
     
