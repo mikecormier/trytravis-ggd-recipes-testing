@@ -7,7 +7,7 @@ variables:
     setup: &setup
         run:
             name: Setup ggd dependencies
-                command: sh .circleci/setup.sh
+            command: .circleci/setup.sh
 
     run: &run
         run:
