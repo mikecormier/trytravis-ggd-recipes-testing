@@ -1,5 +1,5 @@
 anaconda-client=1.6.*
-conda=4.5.4
+conda=4.5.8
 conda-build=3.10.9
 jinja2=2.10.*
 jsonschema=2.6.*
