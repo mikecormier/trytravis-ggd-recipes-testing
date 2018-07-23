@@ -47,11 +47,7 @@ workflows:
     version: 2
     build-n-filter-ggd-recipes:
         jobs:
-            - test-linux:
-                filters:
-                    branches:
-                        only:
-                            - master
+            - test-linux
            # - test-macos:
             
 
