@@ -29,6 +29,10 @@ jobs:
         <<: *linux
         steps:
             - checkout 
+            - run:
+                command: echo $CIRCLE_PULL_REQUEST
+            - run:
+                command: echo $CIRCLE_BRANCH
             - *setup
             - *run
     
