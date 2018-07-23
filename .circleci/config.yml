@@ -6,7 +6,7 @@ version: 2
 variables:
     setup: &setup
         run:
-        name: Setup dependencies
+        name: Setup ggd dependencies
         command: .circleci/setup.sh
 
     run: &run
@@ -43,11 +43,11 @@ jobs:
 #                no_output_timeout: 1200
 
 
-#workflows:
-#    version: 2
-#    build-n-filter-ggd-recipes:
-#        jobs:
-#            - test-linux:
+workflows:
+    version: 2
+    build-n-filter-ggd-recipes:
+        jobs:
+            - test-linux:
            # - test-macos:
             
 
