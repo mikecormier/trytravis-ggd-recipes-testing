@@ -24,13 +24,10 @@ trap rmbuild EXIT
 ## Build/filter all recipes using bioconda-utils build
 bioconda-utils build recipes/ config.yaml
 
-echo -e "\n>> TOKEN: $ANACONDA_GGD_TOKEN\n"
 
 echo "############################################################"
-echo "############################################################"
-echo "Checked Dependencies"
-echo "############################################################"
-echo "############################################################"
+echo "-> Checking Dependencies"
+echo -e "############################################################\n"
 
 for bz2 in $CHECK_DIR/*.bz2; do
 	if [[ "$(basename $bz2)" == "repodata.json.bz2" ]]; then
@@ -41,9 +38,7 @@ for bz2 in $CHECK_DIR/*.bz2; do
 	fi
 
 	echo "############################################################"
-	echo "############################################################"
-	echo "Checking recipe" $(basename $bz2)
-	echo "############################################################"
+	echo "-> Checking recipe" $(basename $bz2)
 	echo "############################################################"
 	ggd check-recipe $bz2
 
@@ -53,9 +48,10 @@ for bz2 in $CHECK_DIR/*.bz2; do
 	if [[ "$CIRCLE_BRANCH" == "master" && -z "$CIRCLE_PULL_REQUEST" ]] ; then
 		if [[ "$ANACONDA_GGD_TOKEN" == "" ]]; then
 			echo -e "\n> WARNING:"
-			echo '> $ANACONDA_GGD_TOKEN not set'
+			echo '-> $ANACONDA_GGD_TOKEN not set'
 		else
 			anaconda -t $ANACONDA_GGD_TOKEN upload $bz2
+            echo -e "\n-> Sucessfully Uploaded\n" 
 		fi
 	fi
 	set -o nounset
