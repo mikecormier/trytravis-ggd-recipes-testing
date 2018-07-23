@@ -45,10 +45,10 @@ for bz2 in $CHECK_DIR/*.bz2; do
 	echo "############################################################"
 	ggd check-recipe $bz2
 
-	# upload
+	## Upload
 	set +o nounset
-	#if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-	if [[ "$CIRCLE_BRANCH" == "master" ]]; then
+    ## If on branch master, and there is no pull requests
+	if [[ "$CIRCLE_BRANCH" == "master" && -z "$CIRCLE_PULL_REQUEST" ]] ; then
 		if [[ "$ANACONDA_GGD_TOKEN" == "" ]]; then
 			echo "\n> WARNING:"
 			echo '> $ANACONDA_GGD_TOKEN not set'
