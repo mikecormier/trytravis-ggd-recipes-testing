@@ -48,6 +48,10 @@ workflows:
     build-n-filter-ggd-recipes:
         jobs:
             - test-linux:
+                filters:
+                    branches:
+                        only:
+                            - master
            # - test-macos:
             
 
