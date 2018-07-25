@@ -25,7 +25,7 @@ trap rmbuild EXIT
 bioconda-utils build recipes/ config.yaml
 
 
-echo "############################################################"
+echo -e  "\n############################################################"
 echo "-> Checking Dependencies"
 echo -e "############################################################\n"
 
@@ -47,7 +47,7 @@ for bz2 in $CHECK_DIR/*.bz2; do
     ## If on branch master, and there is no pull requests
 	if [[ "$CIRCLE_BRANCH" == "master" && -z "$CIRCLE_PULL_REQUEST" ]] ; then
 		if [[ "$ANACONDA_GGD_TOKEN" == "" ]]; then
-			echo -e "\n> WARNING:"
+			echo -e "\n-> WARNING:"
 			echo '-> $ANACONDA_GGD_TOKEN not set'
 		else
 			anaconda -t $ANACONDA_GGD_TOKEN upload $bz2
